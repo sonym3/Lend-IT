@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".EditProfile">
     <ImageView
-        android:id="@+id/ImageVIew_user_image"
+        android:id="@+id/user_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
@@ -16,8 +16,8 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/ic_launcher_background" />
 
-    <TextView
-        android:id="@+id/textView_user_name"
+    <EditText
+        android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -27,8 +27,8 @@
         android:inputType="textPersonName"
         android:textColor="#000"
         android:textStyle="bold" />
-    <TextView
-        android:id="@+id/textView_user_phone"
+    <EditText
+        android:id="@+id/user_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -39,27 +39,27 @@
         android:textColor="#000"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView_user_address"
+    <EditText
+        android:id="@+id/user_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="270dp"
         android:layout_marginEnd="25dp"
-        android:hint="Enter Your Name"
+        android:hint="Enter Your Address"
         android:inputType="text"
         android:textColor="#000"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/editProfileButton"
+        android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="330dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#21a472"
-        android:text="Edit Profile"
+        android:text="Submit"
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textStyle="bold" />
