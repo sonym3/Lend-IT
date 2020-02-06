@@ -5,3 +5,4 @@ Description : TekHub application will be used by the students of CEGEP de la gas
 
 1. Firebase login and reg using: https://www.youtube.com/watch?v=V0ZrnL-i77Q
 2. Bottom Navigation using: https://www.youtube.com/watch?v=JjfSjMs0ImQ
+3. Edit profile with photo update https://www.monstertechnocodes.com/2019/01/chose-image-from-gallery-show-in.html
