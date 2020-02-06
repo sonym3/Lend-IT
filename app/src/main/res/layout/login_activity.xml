@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDE2DA"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+<ImageView
+    android:layout_width="150dp"
+    android:src="@drawable/logo"
+    android:layout_marginTop="30dp"
+    android:layout_gravity="center"
+    android:layout_height="150dp"/>
+    <EditText
+        android:id="@+id/idemail"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+         />
+
+    <EditText
+        android:id="@+id/idpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="password" />
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1565C0"
+        android:text="Login"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/idforgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="forgot password?" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not yet Signed in? "/>
+
+    <Button
+        android:id="@+id/btnregister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#1565C0"
+        android:text="Register"
+        android:textColor="#FFF" />
+</LinearLayout>
