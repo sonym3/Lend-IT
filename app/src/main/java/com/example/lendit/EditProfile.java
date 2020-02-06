@@ -59,7 +59,6 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.navigation_profile );
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -102,7 +101,6 @@ public class EditProfile extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         user_id = firebaseAuth.getCurrentUser().getUid();
         userEmail=firebaseAuth.getCurrentUser().getEmail();
-
         firebaseFirestore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -143,13 +141,8 @@ public class EditProfile extends AppCompatActivity {
                         }
                     });
                 }
-
-                }
+            }
         });
-
-
-
-
         userImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -198,8 +191,7 @@ public class EditProfile extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
-
-        }
+    }
 
     private void choseImage() {
         CropImage.activity()
@@ -226,6 +218,5 @@ public class EditProfile extends AppCompatActivity {
 
             }
         }
-
     }
 }

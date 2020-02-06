@@ -8,18 +8,30 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Profile extends AppCompatActivity {
 
+    ImageView ivuser;
+    TextView tvname;
+    TextView tvphone;
+    TextView tvaddress;
     Button editProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
         editProfile=(Button)findViewById(R.id.editProfileButton);
+        ivuser=(ImageView) findViewById(R.id.ImageVIew_user_image);
+        tvname=(TextView)findViewById(R.id.textView_user_name);
+        tvphone=(TextView)findViewById(R.id.textView_user_phone);
+        tvaddress=(TextView)findViewById(R.id.textView_user_address);
+
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
