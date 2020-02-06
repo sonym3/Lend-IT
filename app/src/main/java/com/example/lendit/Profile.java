@@ -46,4 +46,11 @@ public class Profile extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        // Do Here what ever you want do on back press;
+        Intent c = new Intent(Profile.this,Dashboard.class);
+        startActivity(c);
+        overridePendingTransition(0,0);
+    }
 }
