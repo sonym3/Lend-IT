@@ -25,7 +25,7 @@ public class Register extends AppCompatActivity {
 
     private String email;
     private String pass;
-    FirebaseAuth mAuth;
+
 
 
 
@@ -38,7 +38,6 @@ public class Register extends AppCompatActivity {
         registerPass=(EditText)findViewById(R.id.idpasswordregister);
         registerButton=(Button) findViewById(R.id.idregisterhere);
 
-        mAuth = FirebaseAuth.getInstance();
 
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -56,24 +55,7 @@ public class Register extends AppCompatActivity {
                     registerPass.requestFocus();
                 }
                 else if(!(email.isEmpty() && email.isEmpty())){
-                    mAuth.createUserWithEmailAndPassword(email, pass)
-                            .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        Intent i = new Intent(Register.this,LoginActivity.class);
-                                        startActivity(i);
-                                        // Sign in success, update UI with the signed-in user's information
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Toast.makeText(Register.this, "Registration failed.",
-                                                Toast.LENGTH_SHORT).show();
 
-                                    }
-
-                                    // ...
-                                }
-                            });
                 }
             }
         });

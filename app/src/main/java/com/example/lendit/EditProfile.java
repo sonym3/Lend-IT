@@ -98,12 +98,6 @@ public class EditProfile extends AppCompatActivity {
         userAddress = findViewById(R.id.user_address);
         submit = findViewById(R.id.submit);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        user_id = firebaseAuth.getCurrentUser().getUid();
-        userEmail=firebaseAuth.getCurrentUser().getEmail();
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        storageReference = FirebaseStorage.getInstance().getReference();
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,110 +107,15 @@ public class EditProfile extends AppCompatActivity {
                 final String userphone = userPhone.getText().toString();
                 final String useradress = userAddress.getText().toString();
                 if(!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(userphone)&&!TextUtils.isEmpty(useradress)&&imageUri!=null) {
-                    File newFile = new File(imageUri.getPath());
-                    try {
-                        compressed = new Compressor(EditProfile.this)
-                                .setMaxHeight(125)
-                                .setMaxWidth(125)
-                                .setQuality(50)
-                                .compressToBitmap(newFile);
-                    } catch (IOException e){
-                        e.printStackTrace();
-                    }
 
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    compressed.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                    byte[] thumbData = byteArrayOutputStream.toByteArray();
-                    UploadTask image_path = storageReference.child("user_image").child(userEmail + ".jpg").putBytes(thumbData);
-                    image_path.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                            if (task.isSuccessful()) {
-                                storeData(task, username, userphone, useradress);
-                            } else {
-                                String error = task.getException().getMessage();
-                                Toast.makeText(EditProfile.this, "(IMAGE Error) : " + error, Toast.LENGTH_LONG).show();
-                                progressDialog.dismiss();
-                            }
-                        }
-                    });
                 }
             }
         });
         userImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-                    if (ContextCompat.checkSelfPermission(EditProfile.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
-                        Toast.makeText(EditProfile.this, "Permission Denied", Toast.LENGTH_LONG).show();
-                        ActivityCompat.requestPermissions(EditProfile.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-                    } else {
-                        choseImage();
-                    }
-                } else {
-                    choseImage();
-                }
             }
         });
-    }
-
-    private void storeData(Task<UploadTask.TaskSnapshot > task, String username, String userphone, String useradress) {
-        Task<Uri> download_uri;
-        if (task != null) {
-            download_uri = task.getResult().getMetadata().getReference().getDownloadUrl();
-        } else {
-            download_uri = null;
-        }
-        Map<String, String> userData = new HashMap<>();
-        userData.put("userName",username);
-        userData.put("userPhone",userphone);
-        userData.put("userAddress",useradress);
-        userData.put("userImage",download_uri.toString());
-
-        firebaseFirestore.collection("Users").document(userEmail).set(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    progressDialog.dismiss();
-                    Toast.makeText(EditProfile.this, "User Data is Stored Successfully", Toast.LENGTH_LONG).show();
-                    Intent mainIntent = new Intent(EditProfile.this, Profile.class);
-                    startActivity(mainIntent);
-                    finish();
-                } else {
-                    String error = task.getException().getMessage();
-                    Toast.makeText(EditProfile.this, "(FIRESTORE Error) : " + error, Toast.LENGTH_LONG).show();
-                }
-                progressDialog.dismiss();
-            }
-        });
-    }
-
-    private void choseImage() {
-        CropImage.activity()
-                .setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(1, 1)
-                .start(EditProfile.this);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
-
-                imageUri = result.getUri();
-                userImage.setImageURI(imageUri);
-
-
-            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-
-                Exception error = result.getError();
-
-            }
-        }
     }
 }
