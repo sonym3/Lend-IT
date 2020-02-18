@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +19,6 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.navigation_home );
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -31,7 +29,7 @@ public class Dashboard extends AppCompatActivity {
                     case R.id.navigation_home:
                         break;
                     case R.id.navigation_cart:
-                        Intent a = new Intent(Dashboard.this,Cart.class);
+                        Intent a = new Intent(Dashboard.this, Orders.class);
                         startActivity(a);
                         overridePendingTransition(0,0);
                         return true;

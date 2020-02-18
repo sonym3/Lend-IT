@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Cart extends AppCompatActivity {
+public class Orders extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +28,19 @@ public class Cart extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        Intent a = new Intent(Cart.this,Dashboard.class);
+                        Intent a = new Intent(Orders.this,Dashboard.class);
                         startActivity(a);
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_cart:
                         break;
                     case R.id.navigation_profile:
-                        Intent b = new Intent(Cart.this, Profile.class);
+                        Intent b = new Intent(Orders.this, Profile.class);
                         startActivity(b);
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_waitlist:
-                        Intent c = new Intent(Cart.this,WaitList.class);
+                        Intent c = new Intent(Orders.this,WaitList.class);
                         startActivity(c);
                         overridePendingTransition(0,0);
                         return true;
@@ -53,7 +53,7 @@ public class Cart extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // Do Here what ever you want do on back press;
-        Intent c = new Intent(Cart.this,Dashboard.class);
+        Intent c = new Intent(Orders.this,Dashboard.class);
         startActivity(c);
         overridePendingTransition(0,0);
     }

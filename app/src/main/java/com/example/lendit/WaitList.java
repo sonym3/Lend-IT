@@ -31,7 +31,7 @@ public class WaitList extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_cart:
-                        Intent c = new Intent(WaitList.this,Cart.class);
+                        Intent c = new Intent(WaitList.this, Orders.class);
                         startActivity(c);
                         overridePendingTransition(0,0);
                         return true;

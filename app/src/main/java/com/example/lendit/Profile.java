@@ -11,16 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class Profile extends AppCompatActivity {
@@ -52,6 +46,7 @@ public class Profile extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("On your mark..");
         progressDialog.show();
+        progressDialog.dismiss();
 
 
         editProfile.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +70,7 @@ public class Profile extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_cart:
-                        Intent c = new Intent(Profile.this,Cart.class);
+                        Intent c = new Intent(Profile.this, Orders.class);
                         startActivity(c);
                         overridePendingTransition(0,0);
                         return true;
