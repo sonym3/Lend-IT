@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".com.example.lendit.user.Profile">
     <ImageView
         android:id="@+id/ImageVIew_user_image"
         android:layout_width="100dp"

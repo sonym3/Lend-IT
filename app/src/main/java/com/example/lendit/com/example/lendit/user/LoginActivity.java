@@ -1,23 +1,17 @@
-package com.example.lendit;
+package com.example.lendit.com.example.lendit.user;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.lendit.R;
+import com.example.lendit.com.example.lendit.admin.AdminDashboard;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -79,8 +73,6 @@ public class LoginActivity extends AppCompatActivity {
                     userid=id.getText().toString();
                     userPass=password.getText().toString();
                    new LoginActivity.SignInUser(userid, userPass).execute();
-                   Intent i = new Intent(LoginActivity.this, Dashboard.class);
-                   startActivity(i);
 
                }
                else
@@ -91,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private class SignInUser extends AsyncTask<Void,Void,Void> {
-        String usrId,passwrd,userStatus;
+        String usrId,passwrd,userStatus,userLevel;
 
         public SignInUser(String id,String password) {
             usrId=id;
@@ -135,6 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 JSONObject obj =new JSONObject(response.toString());
                 userStatus=""+obj.getString("Status");
+                userLevel=""+obj.getString("Level");
 
 
             }
@@ -152,12 +145,17 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result){
 
-            if(userStatus.equals("OK")) {
+            if(userStatus.equals("OK") && userLevel.equals("user")) {
                 Toast.makeText(LoginActivity.this,"Login Successful - " +userStatus,Toast.LENGTH_SHORT).show();
-
                 Intent i = new Intent(LoginActivity.this, Dashboard.class);
-                //currentUser=userEmail;
                 startActivity(i);
+                overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
+            }
+            else if(userStatus.equals("OK") && userLevel.equals("admin")){
+                Toast.makeText(LoginActivity.this,"Login Successful - " +userStatus,Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(LoginActivity.this, AdminDashboard.class);
+                startActivity(i);
+                overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
             }
             else
                 Toast.makeText(LoginActivity.this,"Wrong Credentials - " +userStatus,Toast.LENGTH_SHORT).show();

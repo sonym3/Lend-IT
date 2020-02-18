@@ -1,10 +1,12 @@
-package com.example.lendit;
+package com.example.lendit.com.example.lendit.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.lendit.R;
 
 public class SplashScreen extends AppCompatActivity {
     Handler handler;

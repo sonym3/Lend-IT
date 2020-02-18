@@ -1,4 +1,4 @@
-package com.example.lendit;
+package com.example.lendit.com.example.lendit.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.lendit.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -52,7 +53,7 @@ public class Profile extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Profile.this,EditProfile.class);
+                Intent i = new Intent(Profile.this, EditProfile.class);
                 startActivity(i);
             }
         });
@@ -65,7 +66,7 @@ public class Profile extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        Intent a = new Intent(Profile.this,Dashboard.class);
+                        Intent a = new Intent(Profile.this, Dashboard.class);
                         startActivity(a);
                         overridePendingTransition(0,0);
                         return true;

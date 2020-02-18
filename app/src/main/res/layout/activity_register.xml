@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#DDE2DA"
-    tools:context=".Register">
+    tools:context=".com.example.lendit.user.Register">
 
     <EditText
         android:id="@+id/idemailregister"

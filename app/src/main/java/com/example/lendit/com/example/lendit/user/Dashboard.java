@@ -1,4 +1,4 @@
-package com.example.lendit;
+package com.example.lendit.com.example.lendit.user;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lendit.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -18,6 +19,8 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.navigation_home );
@@ -39,7 +42,7 @@ public class Dashboard extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_waitlist:
-                        Intent c = new Intent(Dashboard.this,WaitList.class);
+                        Intent c = new Intent(Dashboard.this, WaitList.class);
                         startActivity(c);
                         overridePendingTransition(0,0);
                         return true;

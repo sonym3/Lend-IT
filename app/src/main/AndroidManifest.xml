@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lendit">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".EditProfile"></activity>
-        <activity android:name=".Orders" />
-        <activity android:name=".WaitList" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Dashboard" />
-        <activity android:name=".Register" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashScreen">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".com.example.lendit.admin.AdminDashboard"></activity>
+        <activity android:name=".com.example.lendit.user.EditProfile" />
+        <activity android:name=".com.example.lendit.user.Orders" />
+        <activity android:name=".com.example.lendit.user.WaitList" />
+        <activity android:name=".com.example.lendit.user.Profile" />
+        <activity
+            android:name=".com.example.lendit.user.Dashboard"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".com.example.lendit.user.Register" />
+        <activity android:name=".com.example.lendit.user.LoginActivity" />
+        <activity
+            android:name=".com.example.lendit.user.SplashScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
