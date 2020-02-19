@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText id;
     private EditText password;
-    private String strEmail;
+    private String strId;
     private String strPass;
     private Button btnLogin;
     private Button btnRegister;
@@ -57,10 +57,10 @@ public class LoginActivity extends AppCompatActivity {
       btnLogin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               strEmail=id.getText().toString();
+               strId =id.getText().toString();
                strPass=password.getText().toString();
 
-               if (strEmail.isEmpty()) {
+               if (strId.isEmpty()) {
                    id.setError("ID");
                    id.requestFocus();
                }
@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                    password.setError("Password");
                    password.requestFocus();
                }
-               else if(!(strPass.isEmpty() && strEmail.isEmpty())){
+               else if(!(strPass.isEmpty() && strId.isEmpty())){
                     String userid,userPass;
                     userid=id.getText().toString();
                     userPass=password.getText().toString();
@@ -94,10 +94,10 @@ public class LoginActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
 
             URL url = null;
-
+            http://localhost:8080/Lendit/lendit/user/register&1895268&sony&sonym3@gmail.com&abcd&9400555121&male
             try {
 
-                url = new URL("http://"+ipAddress+":8080/Lendit/lendit/credentials/validate&"+usrId+"&"+passwrd);
+                url = new URL("http://"+ipAddress+":8080/Lendit/lendit/user/validate&"+usrId+"&"+passwrd);
 
                 HttpURLConnection client = null;
 

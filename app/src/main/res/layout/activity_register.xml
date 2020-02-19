@@ -9,19 +9,56 @@
     tools:context=".com.example.lendit.user.Register">
 
     <EditText
-        android:id="@+id/idemailregister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="College ID"
+        android:id="@+id/EditTextId"/>
+    <EditText
+        android:id="@+id/EditTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
+
+    <EditText
+        android:id="@+id/EditTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="email"/>
-
     <EditText
-        android:id="@+id/idpasswordregister"
+        android:id="@+id/EditTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="password"/>
+
+    <EditText
+        android:id="@+id/EditTextMobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Mobile"/>
+    <RadioGroup
+        android:id="@+id/btnRGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/btnMale"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Male">
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/btnFemale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Female">
+        </RadioButton>
+
+    </RadioGroup>
     <Button
         android:id="@+id/idregisterhere"
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
