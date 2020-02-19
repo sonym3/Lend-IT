@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".com.example.lendit.admin.AdminDashboard"></activity>
+        <activity android:name=".com.example.lendit.admin.StudentList"></activity>
+        <activity android:name=".com.example.lendit.admin.AdminAddItems" />
+        <activity android:name=".com.example.lendit.admin.AdminDashboard" />
         <activity android:name=".com.example.lendit.user.EditProfile" />
         <activity android:name=".com.example.lendit.user.Orders" />
         <activity android:name=".com.example.lendit.user.WaitList" />
