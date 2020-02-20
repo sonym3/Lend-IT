@@ -34,7 +34,8 @@ public class AdminDashboard extends AppCompatActivity {
         removeStudents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(AdminDashboard.this,StudentList.class);
+                startActivity(i);
             }
         });
 
