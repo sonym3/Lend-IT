@@ -59,9 +59,10 @@ public class StudentList extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                callSearch(newText);
-
-
+                if(newText.equals("")){
+                    new StudentList.getStudentList().execute();                }
+                else
+                    callSearch(newText);
                 return true;
             }
 
