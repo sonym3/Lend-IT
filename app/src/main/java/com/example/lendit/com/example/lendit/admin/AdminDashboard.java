@@ -12,6 +12,7 @@ import com.example.lendit.R;
 public class AdminDashboard extends AppCompatActivity {
 
     private Button addItems;
+    private Button items;
     private Button removeStudents;
 
     @Override
@@ -21,6 +22,7 @@ public class AdminDashboard extends AppCompatActivity {
 
         addItems=(Button)findViewById(R.id.addItemsButton);
         removeStudents=(Button)findViewById(R.id.removeStudent);
+        items=(Button)findViewById(R.id.itemsButton);
 
         addItems.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,5 +41,12 @@ public class AdminDashboard extends AppCompatActivity {
             }
         });
 
+        items.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminDashboard.this,ItemsList.class);
+                startActivity(i);
+            }
+        });
     }
 }

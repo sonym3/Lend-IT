@@ -20,7 +20,7 @@ public class StudentListAdapter extends BaseAdapter {
     ArrayList<String> studentName;
     ArrayList<String> studentEmail;
 
-    LayoutInflater inflter;
+    private LayoutInflater inflter;
 
     public StudentListAdapter(Context appContext, ArrayList<String> studentId, ArrayList<String> studentName, ArrayList<String> studentEmail) {
         this.studentId=studentId;
@@ -52,6 +52,9 @@ public class StudentListAdapter extends BaseAdapter {
         TextView id = (TextView) view.findViewById(R.id.studentId);
         TextView name = (TextView) view.findViewById(R.id.studentName);
         TextView email = (TextView) view.findViewById(R.id.studentEmail);
+
+
+
 
 
         id.setText(studentId.get(i));

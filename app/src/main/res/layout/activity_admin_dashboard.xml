@@ -21,6 +21,13 @@
         android:layout_height="wrap_content"
         android:text="Remove Students"/>
 
+    <Button
+        android:id="@+id/itemsButton"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View/Update/Delete Items"/>
+
 
 
 </LinearLayout>
